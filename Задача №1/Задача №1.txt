@@ -1,0 +1,20 @@
+1. Candies
+Candy weighs X grams, pineapple - Y grams, and apple - Z grams.
+
+Need to write a program that will determine how many different versions of tips weighing exactly W grams can make Santa Claus.
+
+Input data
+
+The function should receive four integers X, Y, Z, and W.
+
+Output data
+
+The function should return a single integer - the number of gift options.
+
+Example: 
+
+X = 10
+Y = 25
+Z = 15
+W = 40
+Result: 3
