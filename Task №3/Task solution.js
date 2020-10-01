@@ -1,4 +1,4 @@
-//##############################  Задача №3   #####################################
+//##############################  Task №3   #####################################
 
 const employees = [
     { "id": 1, "name": "Mildred Carson", "drinks": ["Macchiato"] },
@@ -46,10 +46,9 @@ const prices = {
 
 const partyBudget = (budget) => {
 
-
-    // Получаем общую стоимость напитков для каждого сотрудника
+    // Get total drinks price for each employee
     const totalDrinksCost = employees => {
-        const costPerEmployee = {}; // Объект с общей стоимостью всех желаемых напитков каждого сотрудника
+        const costPerEmployee = {}; // Object with the total cost of all the preferences drinks for each employee
 
         const total = employees.map(empl => {
             empl.drinks.forEach(drink => {
@@ -57,11 +56,11 @@ const partyBudget = (budget) => {
                 let price = 0;
 
                 for (let component in recipes[drink]) {
-                    // Высчитываем стоимость каждого напитка, умножая стоимость на пропорции(в рецпете)
+                    // Calculate price for each drink, multiplying cost at proportions(in a recipes)
                     price += recipes[drink][component] * prices[component];
                 }
 
-                // Если у сотрудника больше одного предпочитаемого напитка, суммируем стоимость нескольких напитков
+                // If employee has more than one preferences drinks, summ cost every preference drink this employee
                 costPerEmployee[empl.id] ? costPerEmployee[empl.id] += price : costPerEmployee[empl.id] = price;
 
             })
@@ -72,7 +71,7 @@ const partyBudget = (budget) => {
     }
 
 
-    // Вычисляем сотрудников, стоимость которых удовлетворяет наш бюджет
+    // Calculate employees, the cost of which satisfy our budget
     const budgetSuccessMembers = (budget, total) => {
 
         const accepted = [];
@@ -101,16 +100,16 @@ const partyBudget = (budget) => {
     }
 
 
-    // Оформляем вывод данных
+    // Styling data output
     const invited = (members, employees) => {
-        //Создаём массив, в который будем добавлять объекты
-        let participants = [];
+
+        let participants = []; // Create array, in which will add objects
 
         employees.forEach(empl => {
             members.forEach(member => {
                 if (empl['id'] === member['id']) {
                     participants.push({ id: empl['id'], Name: empl['name'], Drinks: empl['drinks'] })
-                    // Метод .push позволяет реализовать сортировку по возрастанию
+                    // .push Method at this case allows to implement ascending sorting
                 }
             })
         })
